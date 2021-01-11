@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import mongoengine
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'calories.apps.CaloriesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,8 +81,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'my_cal',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '27017',
     }
 }
+
+mongoengine.connect('my_cal', host='localhost:27017')
 
 
 # Password validation
