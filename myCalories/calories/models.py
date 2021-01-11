@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 
 
@@ -25,6 +23,7 @@ class Day(Document):
 
 
 class User(Document):
+    email = StringField(unique=True)
     name = StringField()
     surname = StringField()
     day_list = ListField(ReferenceField('Day'))
