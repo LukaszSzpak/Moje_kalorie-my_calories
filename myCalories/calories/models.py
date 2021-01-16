@@ -13,16 +13,10 @@ class Food(Document):
     carbohydrates = FloatField()
     protein = FloatField()
 
-    def __str__(self):
-        return '{0}, {1}'.format(self.name, self.unit)
-
 
 class Day(Document):
     date = DateField(unique=True)
     food_list = ListField(ReferenceField('FoodInDay'))
-
-    def __str__(self):
-        return '{0}, food count:{1}'.format(self.date, len(self.food_list))
 
 
 class User(Document):
@@ -33,9 +27,6 @@ class User(Document):
     height = IntField()
     age = IntField()
     weight = FloatField()
-
-    def __str__(self):
-        return '{0}, {1}, days count:{2}'.format(self.name, self.surname, len(self.day_list))
 
 
 class FoodInDay(Document):
