@@ -15,4 +15,4 @@ def translate_english_to_polish(english_sentence):
 
 def __my_translate(sentence, source_lang, dest_lang):
     translator = Translator()
-    return translator.translate(text=sentence, lang_src=source_lang, lang_tgt=dest_lang)
+    return translator.translate(text=sentence, lang_src=source_lang, lang_tgt=dest_lang)[:-1]
