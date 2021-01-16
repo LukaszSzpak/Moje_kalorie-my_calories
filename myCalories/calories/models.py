@@ -9,13 +9,16 @@ class Food(Document):
     name_pl = StringField()
     unit = StringField()
     calories = FloatField()
+    fat = FloatField()
+    carbohydrates = FloatField()
+    protein = FloatField()
 
     def __str__(self):
         return '{0}, {1}'.format(self.name, self.unit)
 
 
 class Day(Document):
-    date = DateField(unique=True, primary_key=True)
+    date = DateField(unique=True)
     food_list = ListField(ReferenceField('Food'))
 
     def __str__(self):
