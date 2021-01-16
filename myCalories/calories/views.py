@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .managers import *
+from .sampleData import addData
+import datetime
 
 
 # Create your views here.
 
 
 def main_view(request):
-    User.drop_collection()
-    add_new_user('Lukas@root.pl', 'Lukas', 'Ptak', 165, 60, 21)
-    print(get_user('Lukas@root.pl'))
-    return render(request, "index.html", {})
+    return render(request, "index.html", {'foods': get_all_foods(), 'days': get_all_days()})
+
+
+def sample_data(request):
+    return render(request, "sampleData.html", {})
