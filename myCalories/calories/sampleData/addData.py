@@ -23,6 +23,3 @@ def add_sample_data():
     day.save()
 
     add_food_to_day(day, food, 5)
-
-    result = get_all_foods_from_day(datetime.date.today())
-    print(result.food_list)
