@@ -19,7 +19,7 @@ class Food(Document):
 
 class Day(Document):
     date = DateField(unique=True)
-    food_list = ListField(ReferenceField('Food'))
+    food_list = ListField(ReferenceField('FoodInDay'))
 
     def __str__(self):
         return '{0}, food count:{1}'.format(self.date, len(self.food_list))
@@ -36,3 +36,8 @@ class User(Document):
 
     def __str__(self):
         return '{0}, {1}, days count:{2}'.format(self.name, self.surname, len(self.day_list))
+
+
+class FoodInDay(Document):
+    food = ReferenceField('Food')
+    how_many = FloatField()
