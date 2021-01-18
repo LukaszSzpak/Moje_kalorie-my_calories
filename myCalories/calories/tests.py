@@ -6,7 +6,7 @@ from calories.services.translation import translate_polish_to_english, translate
 
 class MyTestCase(unittest.TestCase):
     def test_one_attribute(self):
-        egg_1pcs_calories = _get_one_attribute('calories', 'egg', '1', 'in grams')
+        egg_1pcs_calories = _get_one_attribute('calories', 'egg', '1', '')
         self.assertAlmostEqual(egg_1pcs_calories, 55.0)
 
     def test_food_data_from_wolfram(self):
