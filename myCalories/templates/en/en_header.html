@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<body>
-<div>
-    <nav id="navigation">
-        <ul>
+{% block extension-styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+{% endblock %}
+<div class="header_style">
+        <ul class="left_menu"
             <li>
                 <a class="nav_link" href="index">Daily nutrition</a>
             </li>
             <li>
                 <a class="nav_link" href="weekly">Weekly nutrition</a>
             </li>
+        </ul>
+        <ul class="right_menu">
             <li>
                 <a class="user_account_nav_link" href="userSettings">User settings</a>
             </li>
         </ul>
-    </nav>
-
-    <hr/>
 </div>
-
-</body>
-</html>
