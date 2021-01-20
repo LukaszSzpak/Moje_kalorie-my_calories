@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<body>
+{% block extension-styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+{% endblock %}
 
-<hr/>
 <div id="footer">
     <p>Wszelkie prawa zastrzeżone &#174; 2021</p>
 </div>
-</body>
-</html>

@@ -1,0 +1,8 @@
+#footer {
+    background: #3399CC;
+    text-align: center;
+    font-size: 17px;
+    padding: 2px;
+    float: bottom;
+    min-height: 5vh;
+}
