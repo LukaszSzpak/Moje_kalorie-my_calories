@@ -37,13 +37,14 @@
 <!-- Table with date food list -->
     <div id="foodTable">
         <table>
-        <tr>
+        <thead>
         {% if user_lang == 'pl' %}
             {% include 'pl/pl_tableHeader.html' %}
         {% else %}
             {% include 'en/en_tableHeader.html' %}
         {% endif %}
-        </tr>
+        </thead>
+        <tbody id="foods">
         <tr>
             {% for food, count in food_list %}
                 {% if user_lang == 'pl' %}
@@ -59,6 +60,7 @@
             {% endfor %}
 
         </tr>
+        </tbody>
         </table>
     </div>
 </div>
