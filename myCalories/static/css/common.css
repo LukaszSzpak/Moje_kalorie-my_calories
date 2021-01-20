@@ -1,0 +1,13 @@
+html{
+    min-height:100%;
+    position:relative;
+}
+
+body {
+    font-family: Georgia, serif;
+    min-height: 100%;
+}
+
+.main {
+    min-height: 70vh;
+}

@@ -8,6 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    {% block extension-styles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+    {% endblock %}
 </head>
 <body>
 
@@ -27,32 +32,35 @@
     {% include 'en/en_dailyNav.html' %}
 {% endif %}
 
-<!-- Table with date food list -->
-<div id="foodTable">
-    <table>
-    <tr>
-    {% if user_lang == 'pl' %}
-        {% include 'pl/pl_tableHeader.html' %}
-    {% else %}
-        {% include 'en/en_tableHeader.html' %}
-    {% endif %}
-    </tr>
-    <tr>
-        {% for food, count in food_list %}
-            {% if user_lang == 'pl' %}
-                <td>{{ food.name_pl }}</td>
-            {% else %}
-                <td>{{ food.name }}</td>
-            {% endif %}
-            <td>{{ food.calories }}kcal</td>
-            <td>{{ food.fat }}g</td>
-            <td>{{ food.carbohydrates }}g</td>
-            <td>{{ food.protein }}g</td>
-            <td>{{ count }}{{ food.unit }}</td>
-        {% endfor %}
+<div class="main">
 
-    </tr>
-    </table>
+<!-- Table with date food list -->
+    <div id="foodTable">
+        <table>
+        <tr>
+        {% if user_lang == 'pl' %}
+            {% include 'pl/pl_tableHeader.html' %}
+        {% else %}
+            {% include 'en/en_tableHeader.html' %}
+        {% endif %}
+        </tr>
+        <tr>
+            {% for food, count in food_list %}
+                {% if user_lang == 'pl' %}
+                    <td>{{ food.name_pl }}</td>
+                {% else %}
+                    <td>{{ food.name }}</td>
+                {% endif %}
+                <td>{{ food.calories }}kcal</td>
+                <td>{{ food.fat }}g</td>
+                <td>{{ food.carbohydrates }}g</td>
+                <td>{{ food.protein }}g</td>
+                <td>{{ count }}{{ food.unit }}</td>
+            {% endfor %}
+
+        </tr>
+        </table>
+    </div>
 </div>
 
 <!-- footer-->
