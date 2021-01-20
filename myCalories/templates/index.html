@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+{% if user_lang == 'pl' %}
+    <html lang="pl">
+{% else %}
+    <html lang="en">
+{% endif %}
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-lalalalalal
+
+<!-- header-->
+<header>
+    {% if user_lang == 'pl' %}
+        {% include 'pl/pl_header.html' %}
+    {% else %}
+        {% include 'en/en_header.html' %}
+    {% endif %}
+</header>
+
+<!-- Daily navigation -->
+{% if user_lang == 'pl' %}
+    {% include 'pl/pl_dailyNav.html' %}
+{% else %}
+    {% include 'en/en_dailyNav.html' %}
+{% endif %}
+
+<!-- Table with date food list -->
+<div id="foodTable">
+    <table>
+    <tr>
+    {% if user_lang == 'pl' %}
+        {% include 'pl/pl_tableHeader.html' %}
+    {% else %}
+        {% include 'en/en_tableHeader.html' %}
+    {% endif %}
+    </tr>
+    <tr>
+        {% for food, count in food_list %}
+            {% if user_lang == 'pl' %}
+                <td>{{ food.name_pl }}</td>
+            {% else %}
+                <td>{{ food.name }}</td>
+            {% endif %}
+            <td>{{ food.calories }}kcal</td>
+            <td>{{ food.fat }}g</td>
+            <td>{{ food.carbohydrates }}g</td>
+            <td>{{ food.protein }}g</td>
+            <td>{{ count }}{{ food.unit }}</td>
+        {% endfor %}
+
+    </tr>
+    </table>
+</div>
+
+<!-- footer-->
+{% if user_lang == 'pl' %}
+    {% include 'pl/pl_footer.html' %}
+{% else %}
+    {% include 'en/en_footer.html' %}
+{% endif %}
+
 </body>
 </html>
