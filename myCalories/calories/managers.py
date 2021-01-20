@@ -30,7 +30,10 @@ def add_or_change_day(date, food_list):
 
 
 def get_day(date):
-    return Day.objects(date=date)[0]
+    days = Day.objects(date=date)
+    if not days:
+        return add_or_change_day(date, [])
+    return days[0]
 
 
 def get_all_days():
@@ -81,4 +84,14 @@ def get_all_foods_from_day(day_date):
     food_in_day_list = day.food_list
     for food_in_day in food_in_day_list:
         result_list.append(food_in_day.food)
+    return result_list
+
+
+def get_all_foods_from_day_with_count(day_date):
+    result_list = []
+
+    day = get_day(day_date)
+    food_in_day_list = day.food_list
+    for food_in_day in food_in_day_list:
+        result_list.append((food_in_day.food, food_in_day.how_many))
     return result_list
