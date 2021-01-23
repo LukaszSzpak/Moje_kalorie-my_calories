@@ -106,11 +106,10 @@ function downloadFoodList(lang){
 }
 
 function afterClick(foodName) {
-    console.log(foodName);
     let food_unit = "undef";
 
     $.ajax({
-    headers: {"X-CSRFToken": Cookies.get('csrftoken')},
+        headers: {"X-CSRFToken": Cookies.get('csrftoken')},
         type: 'POST',
         url: "/calories/post/ajax/getFood",
         data: {'lang': userLang,
@@ -119,7 +118,7 @@ function afterClick(foodName) {
             const food = JSON.parse(response['food']);
             food_unit = food['unit'];
 
-            if (userLang === "pl" && food_unit === "pcs") food_unit = "szt"
+            if (userLang === "pl" && food_unit === "pcs") food_unit = "szt";
 
             document.getElementById("unitOfAddFoodToDay").innerText = food_unit;
 
