@@ -129,4 +129,23 @@ function afterClick(foodName) {
     })
 }
 
+function addFoodToDayFunction() {
+    let foodName = document.getElementById("foodNameInput").value;
+    let foodCount = document.getElementById("countOfAddFoodToDay").value;
+    let date = document.getElementById('actualDate').innerHTML;
+
+    $.ajax({
+    headers: {"X-CSRFToken": Cookies.get('csrftoken')},
+        type: 'POST',
+        url: "/calories/post/ajax/addFoodToDay",
+        data: {'lang': userLang,
+                'food_name': foodName,
+                'count': foodCount,
+                'date': date},
+        success: function (response) {
+            changeDate(date, userLang);
+        }
+    })
+}
+
 foodSearcher(document.getElementById("foodNameInput"), foods)
