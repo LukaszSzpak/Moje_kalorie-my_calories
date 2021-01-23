@@ -22,7 +22,7 @@ def main_view(request):
                                           "act_date": date_to_string(today),
                                           "next_date": date_to_string(tommorow(today)),
                                           "food_list": manager.get_all_foods_from_day_with_count(today),
-                                          "user_lang": 'pl'
+                                          "user_lang": 'pl',
                                           }
                   )
 
@@ -32,7 +32,7 @@ def sample_data(request):
     return render(request, "sampleData.html", {})
 
 
-def get_food_list(request):
+def get_day_food_list(request):
     if request.is_ajax and request.method == "POST":
         data = request.POST.dict()
         this_day = string_to_date(data['date'])
