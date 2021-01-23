@@ -53,13 +53,25 @@
     <div>
         <form autocomplete="off" action="#">
             <div class="foodSearcher" style="width:300px;">
-                <input id="foodNameInput" type="text" name="newFood"
-                        {% if user_lang == 'pl' %}
-                            placeholder="Wyszukaj jedzenie!"
-                        {% else %}
-                            placeholder="Let's find your food!"
-                        {% endif %}>
-                <input type="submit">
+                <table> <tr>
+                    <td>
+                        <input id="foodNameInput" type="text" name="newFood"
+                            {% if user_lang == 'pl' %}
+                                placeholder="Wyszukaj jedzenie!"
+                            {% else %}
+                                placeholder="Let's find your food!"
+                            {% endif %}>
+                    </td>
+                    <td>
+                        <input id="countOfAddFoodToDay" type="text" style="visibility: hidden">
+                    </td>
+                    <td>
+                        <p id="unitOfAddFoodToDay" style="visibility: hidden"></p>
+                    </td>
+                    <td>
+                        <input id="addFoodToDay" type="submit" style="visibility: hidden">
+                    </td>
+                </tr> </table>
             </div>
 
         </form>
@@ -115,9 +127,9 @@
                     <input list="food_unit">
                     <datalist id="food_unit">
                         {% if user_lang == 'pl' %}
-                            <option value="pcs"></option>
-                        {% else %}
                             <option value="szt"></option>
+                        {% else %}
+                            <option value="pcs"></option>
                         {% endif %}
                         <option value="g"></option>
                     </datalist>

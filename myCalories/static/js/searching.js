@@ -23,6 +23,7 @@ function foodSearcher(inp, arr) {
 
           b.addEventListener("click", function(e) {
               inp.value = this.getElementsByTagName("input")[0].value;
+              afterClick(inp.value);
               closeAllLists();
           });
           a.appendChild(b);
@@ -45,7 +46,6 @@ function foodSearcher(inp, arr) {
         e.preventDefault();
         if (currentFocus > -1) {
           if (x) x[currentFocus].click();
-          // tutaj trzeba zmienić na dodanie produktu do listy
         }
       }
     });
@@ -80,8 +80,10 @@ function foodSearcher(inp, arr) {
 }
 
 const foods = [];
+let userLang;
 
 function downloadFoodList(lang){
+    userLang = lang
     $.ajax({
     headers: {"X-CSRFToken": Cookies.get('csrftoken')},
         type: 'POST',
@@ -100,7 +102,32 @@ function downloadFoodList(lang){
                 foods.push(foodString);
             })
         }
-})
+    })
+}
+
+function afterClick(foodName) {
+    console.log(foodName);
+    let food_unit = "undef";
+
+    $.ajax({
+    headers: {"X-CSRFToken": Cookies.get('csrftoken')},
+        type: 'POST',
+        url: "/calories/post/ajax/getFood",
+        data: {'lang': userLang,
+                'food_name': foodName},
+        success: function (response) {
+            const food = JSON.parse(response['food']);
+            food_unit = food['unit'];
+
+            if (userLang === "pl" && food_unit === "pcs") food_unit = "szt"
+
+            document.getElementById("unitOfAddFoodToDay").innerText = food_unit;
+
+            document.getElementById("countOfAddFoodToDay").style.visibility = 'visible';
+            document.getElementById("unitOfAddFoodToDay").style.visibility = 'visible';
+            document.getElementById("addFoodToDay").style.visibility = 'visible';
+        }
+    })
 }
 
 foodSearcher(document.getElementById("foodNameInput"), foods)
