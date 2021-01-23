@@ -13,6 +13,21 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
     {% endblock %}
+
+    {% block scripts %}
+        {% load static %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/searching.js' %}" defer></script>
+        <script>
+            $(document).ready(function(){
+                downloadFoodList('{{ user_lang }}');
+            });
+        </script>
+    {% endblock %}
+
 </head>
 <body>
 
@@ -34,34 +49,79 @@
 
 <div class="main">
 
+<!-- food searcher -->
+    <div>
+        <form autocomplete="off" action="#">
+            <div class="foodSearcher" style="width:300px;">
+                <input id="foodNameInput" type="text" name="myCountry" placeholder="Country">
+                <input type="submit">
+            </div>
+          
+        </form>
+    </div>
+
 <!-- Table with date food list -->
     <div id="foodTable">
+    <form id="new_foods_form">
         <table>
-        <thead>
-        {% if user_lang == 'pl' %}
-            {% include 'pl/pl_tableHeader.html' %}
-        {% else %}
-            {% include 'en/en_tableHeader.html' %}
-        {% endif %}
-        </thead>
-        <tbody id="foods">
-        <tr>
-            {% for food, count in food_list %}
-                {% if user_lang == 'pl' %}
-                    <td>{{ food.name_pl }}</td>
-                {% else %}
-                    <td>{{ food.name }}</td>
-                {% endif %}
-                <td>{{ food.calories }}kcal</td>
-                <td>{{ food.fat }}g</td>
-                <td>{{ food.carbohydrates }}g</td>
-                <td>{{ food.protein }}g</td>
-                <td>{{ count }}{{ food.unit }}</td>
-            {% endfor %}
+            <thead>
+            {% if user_lang == 'pl' %}
+                {% include 'pl/pl_tableHeader.html' %}
+            {% else %}
+                {% include 'en/en_tableHeader.html' %}
+            {% endif %}
+            </thead>
+            <tbody id="foods">
+            <tr>
+                {% for food, count in food_list %}
+                    {% if user_lang == 'pl' %}
+                        <td>{{ food.name_pl }}</td>
+                    {% else %}
+                        <td>{{ food.name }}</td>
+                    {% endif %}
+                    <td>{{ food.calories }}kcal</td>
+                    <td>{{ food.fat }}g</td>
+                    <td>{{ food.carbohydrates }}g</td>
+                    <td>{{ food.protein }}g</td>
+                    <td>{{ count }}{{ food.unit }}</td>
+                {% endfor %}
 
-        </tr>
-        </tbody>
+            </tr>
+            </tbody>
+            <tbody id="add_new">
+            <tr>
+                <td>
+                    <input type="text" id="food_name_form">
+                </td>
+                <td>
+                    <input type="text" id="food_calories_form">
+                </td>
+                <td>
+                    <input type="text" id="food_fat_form">
+                </td>
+                <td>
+                    <input type="text" id="food_carbohydrates_form">
+                </td>
+                <td>
+                    <input type="text" id="food_protein_form">
+                </td>
+                <td>
+                    <input type="text" id="food_count_form">
+                    <input list="food_unit">
+                    <datalist id="food_unit">
+                        {% if user_lang == 'pl' %}
+                            <option value="pcs"></option>
+                        {% else %}
+                            <option value="szt"></option>
+                        {% endif %}
+                        <option value="g"></option>
+                    </datalist>
+                </td>
+
+            </tr>
+            </tbody>
         </table>
+    </form>
     </div>
 </div>
 

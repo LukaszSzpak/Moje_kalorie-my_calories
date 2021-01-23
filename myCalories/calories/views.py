@@ -15,8 +15,6 @@ from calories.services.dateConvertion import string_to_date, date_to_string, yes
 # Create your views here.
 
 def main_view(request):
-
-
     today = datetime.date.today()
     return render(request, "index.html", {"prev_date": date_to_string(yesterday(today)),
                                           "act_date": date_to_string(today),
@@ -47,3 +45,10 @@ def get_day_food_list(request):
                              "prev_date": date_to_string(yesterday(this_day)),
                              "act_date": date_to_string(this_day),
                              "next_date": date_to_string(tommorow(this_day))}, status=200)
+
+
+def get_food_list(request):
+    if request.is_ajax and request.method == "POST":
+        json_string = json.dumps([ResponseFood(ob, 0).__dict__ for ob in manager.get_all_foods()])
+
+        return JsonResponse({"food_list": json_string}, status=200)
