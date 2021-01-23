@@ -53,10 +53,15 @@
     <div>
         <form autocomplete="off" action="#">
             <div class="foodSearcher" style="width:300px;">
-                <input id="foodNameInput" type="text" name="myCountry" placeholder="Country">
+                <input id="foodNameInput" type="text" name="newFood"
+                        {% if user_lang == 'pl' %}
+                            placeholder="Wyszukaj jedzenie!"
+                        {% else %}
+                            placeholder="Let's find your food!"
+                        {% endif %}>
                 <input type="submit">
             </div>
-          
+
         </form>
     </div>
 
