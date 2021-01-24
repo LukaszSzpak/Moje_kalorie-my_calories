@@ -1,0 +1,12 @@
+.unit_small {
+    font-size: 8px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.before_unit {
+    display: inline-block;
+    margin: 1px;
+    padding: 0;
+}

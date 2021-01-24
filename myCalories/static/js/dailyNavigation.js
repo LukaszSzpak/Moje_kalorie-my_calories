@@ -9,6 +9,18 @@ function changeDate(newDate, lang) {
             let table = '';
 
             food_list.forEach(function (food) {
+                let unit_var = '';
+                if (food["unit"] === "pcs"){
+                    if (lang === "pl") {
+                        unit_var = "szt";
+                    } else {
+                        unit_var = "pcs";
+                    }
+
+                } else {
+                    unit_var = "100g"
+                }
+
                 table += '<tr>'
 
                 if (lang === "pl") {
@@ -17,16 +29,13 @@ function changeDate(newDate, lang) {
                     table += '<td>' + food["name"] + '</td>';
                 }
 
-                table += '<td>' + food["calories"] + 'kcal</td>' +
-                '<td>' + food["fat"] + 'g</td>' +
-                '<td>' + food["carbohydrates"] + 'g</td>' +
-                '<td>' + food["protein"] + 'g</td>' +
-                '<td>' + food["count"];
-                    if (food["unit"] === "pcs" && lang === "pl"){
-                        table += "szt";
-                    } else {
-                        table += food["unit"];
-                    }
+                table += '<td><p class="before_unit">' + food["calories"] + 'kcal</p><p class="unit_small"> /' + unit_var + '</p></td>' +
+                '<td><p class="before_unit">' + food["fat"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
+                '<td><p class="before_unit">' + food["carbohydrates"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
+                '<td><p class="before_unit">' + food["protein"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
+                '<td><p class="before_unit">' + food["count"];
+                if(food["unit"] === 'g') table += "x ";
+                table += unit_var;
                 table += '</td>' + '</tr>';
             })
             document.getElementById('foods').innerHTML = table;
