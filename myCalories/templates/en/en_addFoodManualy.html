@@ -1,26 +1,25 @@
 <tr>
     <td>
-        <input type="text" id="food_name_form">
+        <input type="text" id="food_name_form" placeholder="Food name">
     </td>
     <td>
-        <input type="text" id="food_calories_form">
+        <input type="text" id="food_calories_form" placeholder="Food calories [kcal]">
     </td>
     <td>
-        <input type="text" id="food_fat_form">
+        <input type="text" id="food_fat_form" placeholder="Food fats [g]">
     </td>
     <td>
-        <input type="text" id="food_carbohydrates_form">
+        <input type="text" id="food_carbohydrates_form" placeholder="Food carbons [g]">
     </td>
     <td>
-        <input type="text" id="food_protein_form">
+        <input type="text" id="food_protein_form" placeholder="Food proteins [g]">
     </td>
     <td>
-        <input type="text" id="food_count_form">
-        <input list="food_unit_list" id="food_unit">
-        <datalist id="food_unit_list">
-            <option data-value="pcs" value="pcs"></option>
-            <option value="g"></option>
-        </datalist>
+        <input type="text" id="food_count_form" placeholder="Amount of food [g/pcs]">
+        <select id="food_unit">
+            <option value="pcs">pcs</option>
+            <option value="g">x 100g</option>
+        </select>
     </td>
     <td>
         <input type="submit" onclick="addFoodManual('{{ user_lang }}')" value="Add">
