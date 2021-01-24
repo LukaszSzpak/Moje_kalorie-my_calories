@@ -60,7 +60,6 @@ def get_food_list(request):
 def add_food_to_day(request):
     if request.is_ajax and request.method == "POST":
         data = request.POST.dict()
-        print(data)
         lang = data['lang']
         food_name = data['food_name']
         count = float(data['count'])
