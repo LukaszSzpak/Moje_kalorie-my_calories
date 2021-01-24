@@ -1,20 +1,43 @@
 from calories.models import User, Food, Day, FoodInDay
+from calories.sampleData.sampleUser import get_sample_user
 
 
-def add_or_change_user(email, name, surname, weight, height, age):
+def add_user(email, calories, fat, carbohydrates, protein, height, weight, sex, lang):
     user = User()
     user.email = email
-    user.name = name
-    user.surname = surname
     user.weight = weight
     user.height = height
-    user.age = age
-    user.day_list = []
+    user.calories = calories
+    user.fat = fat
+    user.carbohydrates = carbohydrates
+    user.protein = protein
+    user.sex = sex
+    user.lang = lang
     user.save()
+    return user
+
+
+def change_user(email, calories, fat, carbohydrates, protein, height, weight, sex, lang):
+    user = get_user(email)
+    user.weight = weight
+    user.height = height
+    user.calories = calories
+    user.fat = fat
+    user.carbohydrates = carbohydrates
+    user.protein = protein
+    user.sex = sex
+    user.lang = lang
+    user.save()
+    return user
 
 
 def get_user(email):
-    return User.objects(email=email)[0]
+    users = User.objects(email=email)
+    if not users:
+        user = get_sample_user()
+        user.save()
+        return user
+    return users[0]
 
 
 def save_user(user):

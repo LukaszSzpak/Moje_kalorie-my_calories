@@ -1,0 +1,93 @@
+<tr>
+    <td>
+        Height:
+    </td>
+    <td>
+        <input type="number" id="height" value="{{ user.height }}">
+    </td>
+</tr>
+<tr>
+    <td>
+        Weight:
+    </td>
+    <td>
+        <input type="number" id="weight" value="{{ user.weight }}">
+    </td>
+</tr>
+<tr>
+    <td>
+        Calories:
+    </td>
+    <td>
+        <input type="number" id="calories" value="{{ user.calories }}">
+    </td>
+</tr>
+<tr>
+    <td>
+        Fats:
+    </td>
+    <td>
+        <input type="number" id="fat" value="{{ user.fat }}">
+
+    </td>
+</tr>
+<tr>
+    <td>
+        Carbohydrates:
+    </td>
+    <td>
+        <input type="number" id="carbohydrates" value="{{ user.carbohydrates }}">
+    </td>
+</tr>
+<tr>
+    <td>
+        Proteins:
+    </td>
+    <td>
+        <input type="number" id="protein" value="{{ user.protein }}">
+    </td>
+</tr>
+<tr>
+    <td>
+        Sex:
+    </td>
+    <td>
+        <select id="sex" name="sex">
+            <option value="male"
+                    {% if user.sex == "male" %}
+                        selected
+                    {% endif %}
+            >Man</option>
+
+            <option value="female"
+                    {% if user.sex == "female" %}
+                        selected
+                    {% endif %}>Woman</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>
+        Language:
+    </td>
+    <td>
+        <select id="lang" name="lang">
+            <option value="pl"
+                    {% if user.lang == "pl" %}
+                        selected
+                    {% endif %}
+            >Polish</option>
+
+            <option value="en"
+                    {% if user.lang == "en" %}
+                        selected
+                    {% endif %}
+                >English</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="submit" value="Save!" onclick="getFormData()">
+    </td>
+</tr>

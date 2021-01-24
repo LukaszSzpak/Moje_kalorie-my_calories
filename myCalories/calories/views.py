@@ -14,16 +14,19 @@ from calories.services.translation import translate_polish_to_english, translate
 from calories.services.textCoversion import upper_first_letter
 from calories.services.wolfram import get_food_data_from_wolfram
 
+__DEFAULT_USER = 'default@user'
+
 
 # Create your views here.
 
 def main_view(request):
     today = datetime.date.today()
+    user = manager.get_user(__DEFAULT_USER)
     return render(request, "index.html", {"prev_date": date_to_string(yesterday(today)),
                                           "act_date": date_to_string(today),
                                           "next_date": date_to_string(tommorow(today)),
                                           "food_list": manager.get_all_foods_from_day_with_count(today),
-                                          "user_lang": 'pl',
+                                          "user_lang": user.lang,
                                           }
                   )
 
@@ -31,6 +34,29 @@ def main_view(request):
 def sample_data(request):
     addData.add_sample_data()
     return render(request, "sampleData.html", {})
+
+
+def user_settings_view(request):
+    user = manager.get_user(__DEFAULT_USER)
+    return render(request, "userSettings.html", {'user': user,
+                                                 'user_lang': user.lang})
+
+
+def update_user_settings(request):
+    if request.is_ajax and request.method == "POST":
+        data = request.POST.dict()
+
+        manager.change_user(__DEFAULT_USER,
+                            float(data['calories']),
+                            float(data['fat']),
+                            float(data['carbohydrates']),
+                            float(data['protein']),
+                            float(data['height']),
+                            float(data['weight']),
+                            data['sex'],
+                            data['lang'])
+
+        return JsonResponse({}, status=200)
 
 
 def get_day_food_list(request):

@@ -21,12 +21,14 @@ class Day(Document):
 
 class User(Document):
     email = StringField(unique=True)
-    name = StringField()
-    surname = StringField()
-    day_list = ListField(ReferenceField('Day'))
-    height = IntField()
-    age = IntField()
+    calories = FloatField()
+    fat = FloatField()
+    carbohydrates = FloatField()
+    protein = FloatField()
+    height = FloatField()
     weight = FloatField()
+    sex = StringField()
+    lang = StringField()
 
 
 class FoodInDay(Document):
