@@ -6,6 +6,8 @@ function addFoodManual(lang) {
     let foodProtein = document.getElementById("food_protein_form").value;
     let foodCount = document.getElementById("food_count_form").value;
     let foodUnit = document.getElementById("food_unit").value;
+    if(foodUnit === "szt") foodUnit = "pcs";
+
     let date = document.getElementById('actualDate').innerHTML;
 
     $.ajax({
