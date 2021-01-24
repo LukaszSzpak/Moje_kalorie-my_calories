@@ -6,11 +6,7 @@
         <input type="text" id="food_count_form_wolfram">
     </td>
     <td>
-        <input list="food_unit_list_wolfram" id="food_unit_wolfram">
-        <datalist id="food_unit_list_wolfram">
-            <option data-value="pcs" value="szt"></option>
-            <option value="g"></option>
-        </datalist>
+        <input list="food_unit_list_wolfram" id="food_unit_wolfram" value="g" readonly>
     </td>
     <td>
         <input type="submit" onclick="addFoodWithWolfram('{{ user_lang }}')"
