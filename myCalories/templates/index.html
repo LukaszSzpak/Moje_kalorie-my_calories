@@ -146,40 +146,18 @@
             </tbody>
 
             <tbody id="addNewWolfram" style="visibility: hidden">
-            <tr>
-                <td>
-                    <input type="text" id="food_name_form_wolfram">
-                </td>
-                <td>
-                    <input type="text" id="food_count_form_wolfram">
-                </td>
-                <td>
-                    <input list="food_unit_list_wolfram", id="food_unit_wolfram">
-                    <datalist id="food_unit_list_wolfram">
-                        {% if user_lang == 'pl' %}
-                            <option data-value="pcs" value="szt"></option>
-                        {% else %}
-                            <option data-value="pcs" value="pcs"></option>
-                        {% endif %}
-                        <option value="g"></option>
-                    </datalist>
-                </td>
-                <td>
-                    <input type="submit" onclick="addFoodWithWolfram('{{ user_lang }}')"
-                                        {% if user_lang == 'pl' %}
-                                            value="Pobierz z Wolframa"
-                                        {% else %}
-                                            value="Get from Wolfram"
-                                        {% endif %}>
-                </td>
-            </tr>
+                {% if user_lang == 'pl' %}
+                    {% include 'pl/pl_addFoodWithWolfram.html' %}
+                {% else %}
+                    {% include 'en/en_addFoodWithWolfram.html' %}
+                {% endif %}
             </tbody>
 
             <tbody id="buttonsBelowTable" style="visibility: visible">
                     {% if user_lang == 'pl' %}
                         {% include 'pl/pl_buttonsBelowFoodTable.html' %}
                     {% else %}
-                        {% include 'en/en_tableHeader.html' %}
+                        {% include 'en/en_buttonsBelowFoodTable.html' %}
                     {% endif %}
             </tbody>
         </table>
