@@ -94,9 +94,11 @@
                 {% include 'en/en_tableHeader.html' %}
             {% endif %}
             </thead>
+
             <tbody id="foods">
             </tbody>
-            <tbody id="add_new">
+
+            <tbody id="addNewManual" style="visibility: visible">
             <tr>
                 <td>
                     <input type="text" id="food_name_form">
@@ -125,7 +127,40 @@
                         <option value="g"></option>
                     </datalist>
                 </td>
+                <td>
+                    <input type="submit" {% if user_lang == 'pl' %}
+                                            value="Dodaj"
+                                        {% else %}
+                                            value="Add"
+                                        {% endif %}>
+                </td>
 
+            </tr>
+            </tbody>
+
+            <tbody id="addNewWolfram" style="visibility: visible">
+            <tr>
+                <td>
+                    <input type="text" id="food_name_form">
+                </td>
+                <td>
+                    <input list="food_unit">
+                    <datalist id="food_unit">
+                        {% if user_lang == 'pl' %}
+                            <option value="szt"></option>
+                        {% else %}
+                            <option value="pcs"></option>
+                        {% endif %}
+                        <option value="g"></option>
+                    </datalist>
+                </td>
+                <td>
+                    <input type="submit" {% if user_lang == 'pl' %}
+                                            value="Pobierz z Wolframa"
+                                        {% else %}
+                                            value="Get from Wolfram"
+                                        {% endif %}>
+                </td>
             </tr>
             </tbody>
         </table>
