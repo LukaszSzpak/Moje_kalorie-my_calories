@@ -105,44 +105,11 @@
 
         <table>
             <tbody id="addNewManual" style="visibility: hidden">
-            <tr>
-                <td>
-                    <input type="text" id="food_name_form">
-                </td>
-                <td>
-                    <input type="text" id="food_calories_form">
-                </td>
-                <td>
-                    <input type="text" id="food_fat_form">
-                </td>
-                <td>
-                    <input type="text" id="food_carbohydrates_form">
-                </td>
-                <td>
-                    <input type="text" id="food_protein_form">
-                </td>
-                <td>
-                    <input type="text" id="food_count_form">
-                    <input list="food_unit_list" id="food_unit">
-                    <datalist id="food_unit_list">
-                        {% if user_lang == 'pl' %}
-                            <option data-value="pcs" value="szt"></option>
-                        {% else %}
-                            <option data-value="pcs" value="pcs">pcs</option>
-                        {% endif %}
-                        <option value="g"></option>
-                    </datalist>
-                </td>
-                <td>
-                    <input type="submit" onclick="addFoodManual('{{ user_lang }}')"
-                                        {% if user_lang == 'pl' %}
-                                            value="Dodaj"
-                                        {% else %}
-                                            value="Add"
-                                        {% endif %}>
-                </td>
-
-            </tr>
+                {% if user_lang == 'pl' %}
+                    {% include 'pl/pl_addFoodManualy.html' %}
+                {% else %}
+                    {% include 'en/en_addFoodManualy.html' %}
+                {% endif %}
             </tbody>
 
             <tbody id="addNewWolfram" style="visibility: hidden">
