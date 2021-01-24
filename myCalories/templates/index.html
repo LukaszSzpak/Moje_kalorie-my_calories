@@ -25,6 +25,7 @@
         <script>
             $(document).ready(function(){
                 downloadFoodList('{{ user_lang }}');
+                changeDate('{{ act_date }}', '{{ user_lang }}')
             });
         </script>
     {% endblock %}
@@ -94,21 +95,6 @@
             {% endif %}
             </thead>
             <tbody id="foods">
-            <tr>
-                {% for food, count in food_list %}
-                    {% if user_lang == 'pl' %}
-                        <td>{{ food.name_pl }}</td>
-                    {% else %}
-                        <td>{{ food.name }}</td>
-                    {% endif %}
-                    <td>{{ food.calories }}kcal</td>
-                    <td>{{ food.fat }}g</td>
-                    <td>{{ food.carbohydrates }}g</td>
-                    <td>{{ food.protein }}g</td>
-                    <td>{{ count }}{{ food.unit }}</td>
-                {% endfor %}
-
-            </tr>
             </tbody>
             <tbody id="add_new">
             <tr>
