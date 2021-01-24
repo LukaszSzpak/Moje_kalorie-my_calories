@@ -90,7 +90,6 @@
 
 <!-- Table with date food list -->
     <div id="foodTable">
-    <form id="new_foods_form">
         <table>
             <thead>
             {% if user_lang == 'pl' %}
@@ -102,8 +101,10 @@
 
             <tbody id="foods">
             </tbody>
+        </table>
 
-            <tbody id="addNewManual" style="visibility: visible">
+        <table>
+            <tbody id="addNewManual" style="visibility: hidden">
             <tr>
                 <td>
                     <input type="text" id="food_name_form">
@@ -144,7 +145,7 @@
             </tr>
             </tbody>
 
-            <tbody id="addNewWolfram" style="visibility: visible">
+            <tbody id="addNewWolfram" style="visibility: hidden">
             <tr>
                 <td>
                     <input type="text" id="food_name_form_wolfram">
@@ -173,8 +174,15 @@
                 </td>
             </tr>
             </tbody>
+
+            <tbody id="buttonsBelowTable" style="visibility: visible">
+                    {% if user_lang == 'pl' %}
+                        {% include 'pl/pl_buttonsBelowFoodTable.html' %}
+                    {% else %}
+                        {% include 'en/en_tableHeader.html' %}
+                    {% endif %}
+            </tbody>
         </table>
-    </form>
     </div>
 </div>
 
