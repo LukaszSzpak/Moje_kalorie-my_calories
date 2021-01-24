@@ -1,25 +1,20 @@
-{% block extension-styles %}
-    {% load static %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-{% endblock %}
-    <nav id="daily_navigation">
-        <ul>
-            <li>
-                <a class="daily_nav_link" id="prev_date" href="#" onclick="changeDate('{{ prev_date }}',
-                        '{{ user_lang }}')">{{ prev_date }}</a>
-            </li>
-            <li>
-                <a class="daily_nav_link" id="act_date" href="#" onclick="changeDate('{{ act_date }}',
-                        '{{ user_lang }}')"> {{ act_date }}</a>
-            </li>
-            <li>
-                <a class="daily_nav_link" id="next_date" href="#" onclick="changeDate('{{ next_date }}',
-                        '{{ user_lang }}')">{{ next_date }}</a>
-            </li>
-        </ul>
-    </nav>
+<br/>
 
-    <hr/>
+<nav style="display: flex;
+  justify-content: center;">
+    <div style="float: left; margin-right: 50px">
+        <p class="daily_nav_link" id="prev_date" onclick="changeDate('{{ prev_date }}',
+                '{{ user_lang }}')">{{ prev_date }}</p>
+    </div>
+
+    <div style="float: left">
+        <p class="daily_nav_link" id="act_date"> {{ act_date }}</p>
+    </div>
+
+    <div style="float: left; margin-left: 50px">
+        <p class="daily_nav_link" id="next_date" onclick="changeDate('{{ next_date }}',
+                '{{ user_lang }}')">{{ next_date }}</p>
+    </div>
+</nav>
+
+<hr/>
