@@ -144,6 +144,12 @@ function addFoodToDayFunction() {
                 'date': date},
         success: function (response) {
             changeDate(date, userLang);
+
+            document.getElementById("countOfAddFoodToDay").style.visibility = 'hidden';
+            document.getElementById("countOfAddFoodToDay").value= '';
+            document.getElementById("unitOfAddFoodToDay").style.visibility = 'hidden';
+            document.getElementById("addFoodToDay").style.visibility = 'hidden';
+            document.getElementById("foodNameInput").value = '';
         }
     })
 }
