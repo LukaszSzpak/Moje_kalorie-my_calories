@@ -44,12 +44,15 @@ def save_day(day):
     day.save()
 
 
-def add_or_change_food(name, name_pl, unit, calories):
+def add_or_change_food(name, name_pl, unit, calories, fats, carbohydrates, proteins):
     food = Food()
     food.name = name
     food.name_pl = name_pl
     food.unit = unit
     food.calories = calories
+    food.fat = fats
+    food.carbohydrates = carbohydrates
+    food.protein = proteins
     food.save()
     return food
 

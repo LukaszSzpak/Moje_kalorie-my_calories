@@ -22,6 +22,7 @@
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <script type="text/javascript" src="{% static 'js/dailyNavigation.js' %}" defer></script>
         <script type="text/javascript" src="{% static 'js/searching.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'js/addFoodManual.js' %}" defer></script>
         <script>
             $(document).ready(function(){
                 downloadFoodList('{{ user_lang }}');
@@ -117,18 +118,19 @@
                 </td>
                 <td>
                     <input type="text" id="food_count_form">
-                    <input list="food_unit">
-                    <datalist id="food_unit">
+                    <input list="food_unit_list" id="food_unit">
+                    <datalist id="food_unit_list">
                         {% if user_lang == 'pl' %}
-                            <option value="szt"></option>
+                            <option data-value="pcs" value="szt"></option>
                         {% else %}
-                            <option value="pcs"></option>
+                            <option data-value="pcs" value="pcs">pcs</option>
                         {% endif %}
                         <option value="g"></option>
                     </datalist>
                 </td>
                 <td>
-                    <input type="submit" {% if user_lang == 'pl' %}
+                    <input type="submit" onclick="addFoodManual('{{ user_lang }}')"
+                                        {% if user_lang == 'pl' %}
                                             value="Dodaj"
                                         {% else %}
                                             value="Add"
@@ -147,15 +149,16 @@
                     <input list="food_unit">
                     <datalist id="food_unit">
                         {% if user_lang == 'pl' %}
-                            <option value="szt"></option>
+                            <option data-value="pcs" value="szt"></option>
                         {% else %}
-                            <option value="pcs"></option>
+                            <option data-value="pcs" value="pcs"></option>
                         {% endif %}
                         <option value="g"></option>
                     </datalist>
                 </td>
                 <td>
-                    <input type="submit" {% if user_lang == 'pl' %}
+                    <input type="submit"
+                                        {% if user_lang == 'pl' %}
                                             value="Pobierz z Wolframa"
                                         {% else %}
                                             value="Get from Wolfram"

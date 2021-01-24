@@ -10,7 +10,7 @@ from .sampleData import addData
 import datetime
 import calories.managers as manager
 from calories.services.dateConvertion import string_to_date, date_to_string, yesterday, tommorow
-from calories.services.translation import translate_polish_to_english
+from calories.services.translation import translate_polish_to_english, translate_english_to_polish
 from calories.services.textCoversion import upper_first_letter
 
 
@@ -87,3 +87,31 @@ def get_food(request):
 
         json_string = json.dumps(ResponseFood(manager.get_food(food_name), 0).__dict__)
         return JsonResponse({"food": json_string}, status=200)
+
+
+def add_manual_food_to_day(request):
+    if request.is_ajax and request.method == "POST":
+        data = request.POST.dict()
+
+        lang = data['lang']
+        date = string_to_date(data['date'])
+        food_name = data['food_name']
+
+        if lang == "pl":
+            food_name_pl = upper_first_letter(food_name)
+            food_name = upper_first_letter(translate_polish_to_english(food_name))
+        else:
+            food_name_pl = upper_first_letter(translate_english_to_polish(food_name))
+            food_name = upper_first_letter(food_name)
+
+        new_food = manager.add_or_change_food(food_name,
+                                              food_name_pl,
+                                              data['food_unit'],
+                                              float(data['food_calories']),
+                                              float(data['food_fat']),
+                                              float(data['food_carbohydrates']),
+                                              float(data['food_protein']))
+
+        manager.add_food_to_day(manager.get_day(date), new_food, float(data['food_count']))
+
+        return JsonResponse({}, status=200)
