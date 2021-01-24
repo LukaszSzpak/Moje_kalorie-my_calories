@@ -119,6 +119,7 @@ function afterClick(foodName) {
             food_unit = food['unit'];
 
             if (userLang === "pl" && food_unit === "pcs") food_unit = "szt";
+            if (food_unit === "g") food_unit = " x100g";
 
             document.getElementById("unitOfAddFoodToDay").innerText = food_unit;
 

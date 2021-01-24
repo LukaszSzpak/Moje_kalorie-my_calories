@@ -58,32 +58,34 @@
 
 <!-- food searcher -->
     <div>
-        <form autocomplete="off" action="#">
-            <div class="foodSearcher" style="width:300px;">
-                <table> <tr>
-                    <td>
-                        <input id="foodNameInput" type="text" name="newFood"
-                            {% if user_lang == 'pl' %}
-                                placeholder="Wyszukaj jedzenie!"
+        <div class="foodSearcher" style="width:300px;">
+            <table> <tr>
+                <td>
+                    <input id="foodNameInput" type="text" name="newFood"
+                        {% if user_lang == 'pl' %}
+                            placeholder="Wyszukaj jedzenie!"
+                        {% else %}
+                            placeholder="Let's find your food!"
+                        {% endif %}>
+                </td>
+                <td>
+                    <input id="countOfAddFoodToDay" type="text" style="visibility: hidden">
+                </td>
+                <td>
+                    <p id="unitOfAddFoodToDay" style="visibility: hidden"></p>
+                </td>
+                <td>
+                    <input id="addFoodToDay" type="submit"
+                           onclick="addFoodToDayFunction()"
+                           style="visibility: hidden"
+                           {% if user_lang == 'pl' %}
+                                value="Dodaj do swojego dnia!"
                             {% else %}
-                                placeholder="Let's find your food!"
+                                value="Add to Your day!"
                             {% endif %}>
-                    </td>
-                    <td>
-                        <input id="countOfAddFoodToDay" type="text" style="visibility: hidden">
-                    </td>
-                    <td>
-                        <p id="unitOfAddFoodToDay" style="visibility: hidden"></p>
-                    </td>
-                    <td>
-                        <input id="addFoodToDay" type="submit"
-                               onclick="addFoodToDayFunction()"
-                               style="visibility: hidden">
-                    </td>
-                </tr> </table>
-            </div>
-
-        </form>
+                </td>
+            </tr> </table>
+        </div>
     </div>
 
 <!-- Table with date food list -->
