@@ -21,8 +21,13 @@ function changeDate(newDate, lang) {
                 '<td>' + food["fat"] + 'g</td>' +
                 '<td>' + food["carbohydrates"] + 'g</td>' +
                 '<td>' + food["protein"] + 'g</td>' +
-                '<td>' + food["count"] + food["unit"] +'</td>' +
-                '</tr>';
+                '<td>' + food["count"];
+                    if (food["unit"] === "pcs" && lang === "pl"){
+                        table += "szt";
+                    } else {
+                        table += food["unit"];
+                    }
+                table += '</td>' + '</tr>';
             })
             document.getElementById('foods').innerHTML = table;
 
