@@ -10,5 +10,6 @@ urlpatterns = [
     path('post/ajax/allFoodList', views.get_food_list, name='allFoodList'),
     path('post/ajax/getFood', views.get_food, name='getFood'),
     path('post/ajax/addFoodToDay', views.add_food_to_day, name='addFoodToDay'),
-    path('post/ajax/addManualFoodToDay', views.add_manual_food_to_day, name='addManualFoodToDay')
+    path('post/ajax/addManualFoodToDay', views.add_manual_food_to_day, name='addManualFoodToDay'),
+    path('post/ajax/addWolframFoodToDay', views.add_wolfram_food_to_day, name='addWolframFoodToDay')
 ]
