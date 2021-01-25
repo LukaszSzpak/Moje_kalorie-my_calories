@@ -26,10 +26,11 @@
         <script type="text/javascript" src="{% static 'js/searching.js' %}" defer></script>
         <script type="text/javascript" src="{% static 'js/addFoodManual.js' %}" defer></script>
         <script type="text/javascript" src="{% static 'js/addFoodWolfram.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'js/foodTableSum.js' %}" defer></script>
         <script>
             $(document).ready(function(){
                 downloadFoodList('{{ user_lang }}');
-                changeDate('{{ act_date }}', '{{ user_lang }}')
+                changeDate('{{ act_date }}', '{{ user_lang }}');
             });
         </script>
     {% endblock %}
@@ -109,6 +110,9 @@
             </thead>
 
             <tbody id="foods">
+            </tbody>
+
+            <tbody id="sums">
             </tbody>
         </table>
 

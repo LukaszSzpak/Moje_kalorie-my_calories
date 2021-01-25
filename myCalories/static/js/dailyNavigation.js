@@ -37,7 +37,10 @@ function changeDate(newDate, lang) {
                 if(food["unit"] === 'g') table += "x ";
                 table += unit_var;
                 table += '</td>' + '</tr>';
+
+
             })
+            calcAndAddFoodTableSum(food_list, lang);
             document.getElementById('foods').innerHTML = table;
 
             document.getElementById('prev_date').innerHTML = response['prev_date'];

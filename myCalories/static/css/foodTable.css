@@ -10,3 +10,7 @@
     margin: 1px;
     padding: 0;
 }
+
+tr.border_top td {
+  border-top: 1px solid black;
+}
