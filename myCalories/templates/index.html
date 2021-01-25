@@ -13,6 +13,7 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/foodTable.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/loader.css' %}">
     {% endblock %}
 
     {% block scripts %}
@@ -36,6 +37,7 @@
 </head>
 <body>
 
+<!-- HTML variable -->
 <p id="actualDate" hidden>{{ act_date }}</p>
 
 <!-- header-->
@@ -54,11 +56,18 @@
     {% include 'en/en_dailyNav.html' %}
 {% endif %}
 
+<!-- loader -->
+<div id="loadingDiv" style="visibility: hidden">
+    <div class="loader"></div>
+</div>
+
 <div class="main">
 
 <!-- food searcher -->
     <div>
         <div class="foodSearcher" style="width:300px;">
+
+
             <table> <tr>
                 <td>
                     <input id="foodNameInput" type="text" name="newFood"

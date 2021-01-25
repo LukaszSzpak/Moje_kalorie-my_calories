@@ -126,6 +126,7 @@ function afterClick(foodName) {
             document.getElementById("countOfAddFoodToDay").style.visibility = 'visible';
             document.getElementById("unitOfAddFoodToDay").style.visibility = 'visible';
             document.getElementById("addFoodToDay").style.visibility = 'visible';
+
         }
     })
 }
