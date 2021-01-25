@@ -10,7 +10,7 @@ def get_food_data_from_wolfram(food_name, unit):
     food = Food()
     food.name = food_name
     food.unit = unit
-    if unit == "/ 100g":
+    if unit == "/ 100g" or unit == "g":
         unit = "100g"
 
     food.calories = _get_one_attribute('calories', food_name, unit, '')

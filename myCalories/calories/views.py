@@ -150,6 +150,9 @@ def add_wolfram_food_to_day(request):
         lang = data['lang']
         date = string_to_date(data['date'])
         food_name = data['food_name']
+        food_unit = data['food_unit']
+        if food_unit == '/ 100g' or food_unit == 'x 100g':
+            food_unit = "g"
 
         if lang == "pl":
             food_name_pl = upper_first_letter(food_name)
@@ -158,7 +161,7 @@ def add_wolfram_food_to_day(request):
             food_name_pl = upper_first_letter(translate_english_to_polish(food_name))
             food_name = upper_first_letter(food_name)
 
-        new_food = get_food_data_from_wolfram(food_name, data['food_unit'])
+        new_food = get_food_data_from_wolfram(food_name, food_unit)
         new_food.name_pl = food_name_pl
         manager.save_food(new_food)
 

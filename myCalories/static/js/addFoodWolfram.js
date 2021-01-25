@@ -2,7 +2,6 @@ function addFoodWithWolfram(lang) {
     let foodName = document.getElementById("food_name_form_wolfram").value;
     let foodUnit = document.getElementById("food_unit_wolfram").value;
     let foodCount = document.getElementById("food_count_form_wolfram").value;
-    if(foodUnit === "szt") foodUnit = "pcs";
 
     let date = document.getElementById('actualDate').innerHTML;
 
