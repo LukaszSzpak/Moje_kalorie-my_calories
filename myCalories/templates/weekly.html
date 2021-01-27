@@ -60,6 +60,23 @@
 <hr/>
 <!-- Content -->
 <div class="main">
+    <table style="margin: auto">
+        <thead>
+        <tr>
+            {% if user_lang == 'pl' %}
+                {% include 'pl/pl_weeklyNutritionTableHeader.html' %}
+            {% else %}
+                {% include 'en/en_weeklyNutritionTableHeader.html' %}
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="weekly_calories"></tr>
+            <tr id="weekly_fats"></tr>
+            <tr id="weekly_carbohydrates"></tr>
+            <tr id="weekly_proteins"></tr>
+        </tbody>
+    </table>
 
 </div>
 
