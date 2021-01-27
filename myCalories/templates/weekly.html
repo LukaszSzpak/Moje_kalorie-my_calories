@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% if user_lang == 'pl' %}
+    <html lang="pl">
+{% else %}
+    <html lang="en">
+{% endif %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly</title>
+
+    {% block extension-styles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+    {% endblock %}
+
+    {% block scripts %}
+        {% load static %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/dailyNavigation.js' %}" defer></script>
+        <script>
+            $(document).ready(function(){
+                //changeDate();
+            });
+        </script>
+    {% endblock %}
+
+</head>
+<body>
+
+<!-- header-->
+<header>
+    {% if user_lang == 'pl' %}
+        {% include 'pl/pl_header.html' %}
+    {% else %}
+        {% include 'en/en_header.html' %}
+    {% endif %}
+</header>
+
+<!-- Weekly navigation -->
+<br>
+<nav style="display: flex;
+  justify-content: center;">
+    <div style="float: left; margin-right: 50px">
+        <p class="daily_nav_link" id="prev_week"></p>
+    </div>
+
+    <div style="float: left">
+        <p class="daily_nav_link" id="act_week"> {{ act_week_first }} - {{ act_week_last }}</p>
+    </div>
+
+    <div style="float: left; margin-left: 50px">
+        <p class="daily_nav_link" id="next_week"></p>
+    </div>
+</nav>
+
+<hr/>
+<!-- Content -->
+<div class="main">
+
+</div>
+
+
+<!-- footer-->
+{% if user_lang == 'pl' %}
+    {% include 'pl/pl_footer.html' %}
+{% else %}
+    {% include 'en/en_footer.html' %}
+{% endif %}
+
+</body>
+</html>

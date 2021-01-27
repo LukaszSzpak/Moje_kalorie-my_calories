@@ -38,3 +38,11 @@ def get_prev_week(date):
 def get_next_week(date):
     next_week_date = date + datetime.timedelta(7)
     return get_week(next_week_date)
+
+
+def date_list_to_string_list(date_list):
+    result_list = []
+    for date in date_list:
+        result_list.append(date_to_string(date))
+
+    return result_list

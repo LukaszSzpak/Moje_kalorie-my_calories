@@ -9,7 +9,7 @@ from .managers import *
 from .sampleData import addData
 import datetime
 import calories.managers as manager
-from calories.services.dateConvertion import string_to_date, date_to_string, yesterday, tommorow
+from calories.services.dateConvertion import *
 from calories.services.translation import translate_polish_to_english, translate_english_to_polish
 from calories.services.textCoversion import upper_first_letter
 from calories.services.wolfram import get_food_data_from_wolfram
@@ -40,6 +40,12 @@ def user_settings_view(request):
     user = manager.get_user(__DEFAULT_USER)
     return render(request, "userSettings.html", {'user': user,
                                                  'user_lang': user.lang})
+
+
+def weekly_view(request):
+    return render(request, "weekly.html", {'user_lang': manager.get_user(__DEFAULT_USER).lang,
+                                           'act_week_first': date_list_to_string_list(get_week(datetime.date.today()))[0],
+                                           'act_week_last': date_list_to_string_list(get_week(datetime.date.today()))[-1]})
 
 
 def update_user_settings(request):
@@ -167,3 +173,14 @@ def add_wolfram_food_to_day(request):
 
         manager.add_food_to_day(manager.get_day(date), new_food, float(data['food_count']))
         return JsonResponse({}, status=200)
+
+
+def get_weekly_summary(request):
+    if request.is_ajax and request.method == "POST":
+        data = request.POST.dict()
+        date = string_to_date(data['date'])
+
+        return JsonResponse({"prev_week": date_list_to_string_list(get_prev_week(date)),
+                             "act_week": date_list_to_string_list(get_week(date)),
+                             "next_week": date_list_to_string_list(get_next_week(date))},
+                            status=200)
