@@ -15,10 +15,10 @@ def get_food_data_from_wolfram(food_name, unit):
 
     food_name = food_name.replace(" ", "+")
 
-    food.calories = _get_one_attribute('calories+in', food_name, unit, '')
-    food.fat = _get_one_attribute('fat+in', food_name, unit, 'in+grams')
-    food.protein = _get_one_attribute('protein+in', food_name, unit, 'in+grams')
-    food.carbohydrates = _get_one_attribute('carbohydrates+in', food_name, unit, 'in+grams')
+    food.calories = _get_one_attribute('calories', food_name, unit, '')
+    food.fat = _get_one_attribute('fat', food_name, unit, 'in+grams')
+    food.protein = _get_one_attribute('protein', food_name, unit, 'in+grams')
+    food.carbohydrates = _get_one_attribute('carbohydrates', food_name, unit, 'in+grams')
     return food
 
 
