@@ -1,18 +1,16 @@
 import json
-import pickle
 
 from django.http import JsonResponse
 from django.shortcuts import render
 
 from .ResponseFood import ResponseFood
-from .managers import *
 from .sampleData import addData
-import datetime
 import calories.managers as manager
 from calories.services.dateConvertion import *
 from calories.services.translation import translate_polish_to_english, translate_english_to_polish
 from calories.services.textCoversion import upper_first_letter
 from calories.services.wolfram import get_food_data_from_wolfram
+from calories.services.weeklyMath import *
 
 __DEFAULT_USER = 'default@user'
 
@@ -182,5 +180,6 @@ def get_weekly_summary(request):
 
         return JsonResponse({"prev_week": date_list_to_string_list(get_prev_week(date)),
                              "act_week": date_list_to_string_list(get_week(date)),
-                             "next_week": date_list_to_string_list(get_next_week(date))},
+                             "next_week": date_list_to_string_list(get_next_week(date)),
+                             "daily_list": get_weekly_nutrition_json(get_week(date))},
                             status=200)

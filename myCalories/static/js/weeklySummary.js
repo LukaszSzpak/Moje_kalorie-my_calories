@@ -17,7 +17,7 @@ function parseWeeklyData(newWeek, lang) {
             document.getElementById('next_week').innerHTML = next_week[0] + ' - ' + next_week[0];
             document.getElementById('next_week').onclick = function () {parseWeeklyData(next_week[0], lang)};
 
-            weeklyNutrition(null, lang);
+            weeklyNutrition(response['daily_list'], lang);
         }
     })
 }
@@ -39,6 +39,16 @@ function weeklyNutrition(daysSummaries, lang) {
         proteinsRow += '<td>Proteins:</td>';
         carbohydratesRow += '<td>Carbohydrates:</td>';
     }
+
+    daysSummaries.forEach(function (food){
+        let parsedFood = JSON.parse(food);
+
+        caloriesRow += '<td>' + parsedFood['calories'] + 'kcal</td>';
+        fatsRow += '<td>' + parsedFood['fat'] + 'g</td>';
+        proteinsRow += '<td>' + parsedFood['protein'] + 'g</td>';
+        carbohydratesRow += '<td>' + parsedFood['carbohydrates'] + 'g</td>';
+    })
+
 
     document.getElementById("weekly_calories").innerHTML = caloriesRow;
     document.getElementById("weekly_fats").innerHTML = fatsRow;
