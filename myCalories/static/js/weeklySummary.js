@@ -18,6 +18,7 @@ function parseWeeklyData(newWeek, lang) {
             document.getElementById('next_week').onclick = function () {parseWeeklyData(next_week[0], lang)};
 
             weeklyNutrition(response['daily_list'], lang);
+            popularFoods(response['popular_foods'], lang);
         }
     })
 }
@@ -55,4 +56,32 @@ function weeklyNutrition(daysSummaries, lang) {
     document.getElementById("weekly_carbohydrates").innerHTML = carbohydratesRow;
     document.getElementById("weekly_proteins").innerHTML = proteinsRow;
 
+}
+
+function popularFoods(foodList, lang) {
+    let tbody = '<tr>';
+
+    foodList.forEach(function (food) {
+        let parsedFood = JSON.parse(food);
+        let unit = parsedFood['unit']
+
+        if (unit === "g") {
+            unit = "x 100g"
+        } else {
+            if (lang === "pl") unit = "szt";
+        }
+
+
+        tbody += '<td>';
+        if (lang === "pl") {
+            tbody += parsedFood['name_pl'];
+        } else {
+            tbody += parsedFood['name'];
+        }
+
+        tbody += '</td><td>' + parsedFood['count'] + unit + '</td>';
+    })
+
+    tbody += '</tr>'
+    document.getElementById("popular_foods").innerHTML = tbody;
 }

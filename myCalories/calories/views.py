@@ -181,5 +181,6 @@ def get_weekly_summary(request):
         return JsonResponse({"prev_week": date_list_to_string_list(get_prev_week(date)),
                              "act_week": date_list_to_string_list(get_week(date)),
                              "next_week": date_list_to_string_list(get_next_week(date)),
-                             "daily_list": get_weekly_nutrition_json(get_week(date))},
+                             "daily_list": get_weekly_nutrition_json(get_week(date)),
+                             "popular_foods": get_most_popular_foods_json(get_week(date))},
                             status=200)

@@ -78,6 +78,22 @@
         </tbody>
     </table>
 
+    <br/>
+
+    <table style="margin: auto">
+        <thead>
+            {% if user_lang == 'pl' %}
+                {% include 'pl/pl_weeklyPopularFoodTableHeader.html' %}
+            {% else %}
+                {% include 'en/en_weeklyPopularFoodTableHeader.html' %}
+            {% endif %}
+        </thead>
+
+        <tbody id="popular_foods">
+
+        </tbody>
+    </table>
+
 </div>
 
 
