@@ -27,6 +27,11 @@
         <script type="text/javascript" src="{% static 'js/addFoodManual.js' %}" defer></script>
         <script type="text/javascript" src="{% static 'js/addFoodWolfram.js' %}" defer></script>
         <script type="text/javascript" src="{% static 'js/foodTableSum.js' %}" defer></script>
+        {% if user_lang == 'pl' %}
+            <script type="text/javascript" src="{% static 'js/pl/pl_alerts.js' %}" defer></script>
+        {% else %}
+            <script type="text/javascript" src="{% static 'js/en/en_alerts.js' %}" defer></script>
+        {% endif %}
         <script>
             $(document).ready(function(){
                 downloadFoodList('{{ user_lang }}');

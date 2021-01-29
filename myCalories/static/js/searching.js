@@ -136,6 +136,13 @@ function addFoodToDayFunction() {
     let foodCount = document.getElementById("countOfAddFoodToDay").value;
     let date = document.getElementById('actualDate').innerHTML;
 
+    console.log(foodCount);
+
+    if (foodCount <= 0) {
+        alertCountLessOrEqualZero();
+        return;
+    }
+
     $.ajax({
     headers: {"X-CSRFToken": Cookies.get('csrftoken')},
         type: 'POST',

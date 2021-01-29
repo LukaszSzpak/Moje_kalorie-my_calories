@@ -8,6 +8,11 @@ function getFormData() {
     let sex = document.getElementById("sex").value;
     let lang = document.getElementById("lang").value;
 
+    if (height < 1 || weight < 1 || calories < 1 || fat < 1 || carbohydrates < 1 || protein < 1) {
+        alertUserSettings();
+        return;
+    }
+
     $.ajax({
         headers: {"X-CSRFToken": Cookies.get('csrftoken')},
         type: 'POST',
@@ -22,6 +27,9 @@ function getFormData() {
                 'sex': sex},
         success: function (response) {
             document.location.reload();
+        },
+        error: function () {
+            alertUserSettings();
         }
     })
 }

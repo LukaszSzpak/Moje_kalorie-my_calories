@@ -10,6 +10,16 @@ function addFoodManual(lang) {
 
     let date = document.getElementById('actualDate').innerHTML;
 
+    if (foodCount <= 0) {
+        alertCountLessOrEqualZero();
+        return;
+    }
+
+    if (foodCalories < 0 || foodFat < 0 || foodCarbohydrates < 0 || foodProtein < 0) {
+        alertLessThenZero();
+        return;
+    }
+
     $.ajax({
         headers: {"X-CSRFToken": Cookies.get('csrftoken')},
         type: 'POST',
@@ -27,6 +37,10 @@ function addFoodManual(lang) {
             changeDate(date, lang);
             clearManualFoodAdding();
             downloadFoodList(lang);
+        },
+        error: function () {
+            alertAlreadyInDatabase();
+            clearManualFoodAdding();
         }
     })
 
@@ -40,4 +54,7 @@ function clearManualFoodAdding() {
     document.getElementById("food_protein_form").value = '';
     document.getElementById("food_count_form").value = '';
     document.getElementById("food_unit").value = '';
+
+    document.getElementById("addNewManual").style.visibility = "hidden";
+    document.getElementById("buttonsBelowTable").style.visibility = "visible";
 }

@@ -4,6 +4,11 @@ function addFoodWithWolfram(lang) {
     let foodCount = document.getElementById("food_count_form_wolfram").value;
     let date = document.getElementById('actualDate').innerHTML;
 
+    if (foodCount <= 0) {
+        alertCountLessOrEqualZero();
+        return;
+    }
+
     document.getElementById("loadingDiv").style.visibility = "visible";
 
     $.ajax({
@@ -20,8 +25,9 @@ function addFoodWithWolfram(lang) {
             clearWolframFoodAdding();
             downloadFoodList(lang);
         },
-        error : function() {
+        error: function() {
               clearWolframFoodAdding();
+              alertNotFoundWolfram();
         }
     })
 
@@ -33,4 +39,6 @@ function clearWolframFoodAdding() {
     document.getElementById("food_count_form_wolfram").value = '';
 
     document.getElementById("loadingDiv").style.visibility = "hidden";
+    document.getElementById("addNewWolfram").style.visibility = "hidden";
+    document.getElementById("buttonsBelowTable").style.visibility = "visible";
 }
