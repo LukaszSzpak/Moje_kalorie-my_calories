@@ -1,0 +1,8 @@
+.weekly_table, .weekly_foods {
+    max-width: 800px;
+    margin: auto;
+}
+
+.weekly_foods {
+    max-width: 400px;
+}

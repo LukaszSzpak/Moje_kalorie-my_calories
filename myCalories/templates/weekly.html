@@ -12,6 +12,8 @@
     {% block extension-styles %}
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/weekly.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     {% endblock %}
 
     {% block scripts %}
@@ -41,26 +43,30 @@
 </header>
 
 <!-- Weekly navigation -->
-<br>
 <nav style="display: flex;
-  justify-content: center;">
+  justify-content: center; min-height: 80px; background-color: transparent;" class="nav-wrapper">
     <div style="float: left; margin-right: 50px">
-        <p class="daily_nav_link" id="prev_week"></p>
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="prev_week" ></p>
     </div>
 
     <div style="float: left">
-        <p class="daily_nav_link" id="act_week"> {{ act_week_first }} - {{ act_week_last }}</p>
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="act_week">
+            {% if user_lang == 'pl' %}
+                ten tydzień
+            {% else %}
+                this week
+            {% endif %}
+        </p>
     </div>
 
     <div style="float: left; margin-left: 50px">
-        <p class="daily_nav_link" id="next_week"></p>
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="next_week"></p>
     </div>
 </nav>
 
-<hr/>
 <!-- Content -->
 <div class="main">
-    <table style="margin: auto">
+    <table class="weekly_table striped">
         <thead>
         <tr>
             {% if user_lang == 'pl' %}
@@ -80,7 +86,14 @@
 
     <br/>
 
-    <table style="margin: auto">
+    <table class="weekly_foods striped">
+        <caption>
+            {% if user_lang == 'pl' %}
+                Twoje popularne produkty:
+            {% else %}
+                Your popular products:
+            {% endif %}
+        </caption>
         <thead>
             {% if user_lang == 'pl' %}
                 {% include 'pl/pl_weeklyPopularFoodTableHeader.html' %}

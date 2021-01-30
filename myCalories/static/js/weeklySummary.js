@@ -12,8 +12,6 @@ function parseWeeklyData(newWeek, lang) {
             document.getElementById('prev_week').innerHTML = prev_week[0] + ' - ' + prev_week[6];
             document.getElementById('prev_week').onclick = function () {parseWeeklyData(prev_week[0], lang)};
 
-            document.getElementById('act_week').innerHTML = act_week[0] + ' - ' + act_week[6];
-
             document.getElementById('next_week').innerHTML = next_week[0] + ' - ' + next_week[0];
             document.getElementById('next_week').onclick = function () {parseWeeklyData(next_week[0], lang)};
 
@@ -59,7 +57,7 @@ function weeklyNutrition(daysSummaries, lang) {
 }
 
 function popularFoods(foodList, lang) {
-    let tbody = '<tr>';
+    let tbody = '';
 
     foodList.forEach(function (food) {
         let parsedFood = JSON.parse(food);
@@ -72,7 +70,7 @@ function popularFoods(foodList, lang) {
         }
 
 
-        tbody += '<td>';
+        tbody += '<tr><td>';
         if (lang === "pl") {
             tbody += parsedFood['name_pl'];
         } else {
