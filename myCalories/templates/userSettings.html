@@ -13,6 +13,7 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/userSettings.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     {% endblock %}
 
     {% block scripts %}
@@ -27,6 +28,12 @@
         {% else %}
             <script type="text/javascript" src="{% static 'js/en/en_alerts.js' %}" defer></script>
         {% endif %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                 $('select').formSelect();
+            });
+        </script>
     {% endblock %}
 
 </head>
@@ -42,13 +49,11 @@
 </header>
 
 <div class="main">
-    <table id="user_set_form" class="user_settings_form center">
-        {% if user_lang == 'pl' %}
-            {% include 'pl/pl_userSettingsForm.html' %}
-        {% else %}
-            {% include 'en/en_userSettingsForm.html' %}
-        {% endif %}
-    </table>
+    {% if user_lang == 'pl' %}
+        {% include 'pl/pl_userSettingsForm.html' %}
+    {% else %}
+        {% include 'en/en_userSettingsForm.html' %}
+    {% endif %}
 </div>
 
 <!-- footer-->
