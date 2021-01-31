@@ -1,22 +1,25 @@
-<tr>
-    <td>
+<p>Add new food with Wolfram:</p>
+<div class="row table_size">
+    <div class="input-field col inline" style="width: 150px">
         <input type="text" id="food_name_form_wolfram" placeholder="Food name">
-    </td>
-    <td>
-        <input type="text" id="food_count_form_wolfram" placeholder="Amount of food [x 100g]">
-    </td>
-    <td>
-        <input list="food_unit_list_wolfram" id="food_unit_wolfram" value="/ 100g" readonly>
-    </td>
-    <td>
-        <input type="submit" onclick="addFoodWithWolfram('{{ user_lang }}')"
-                                value="Get from Wolfram">
-    </td>
-    <td>
-        <input type="submit" onclick='(function(){
+        <label for="food_name_form_wolfram">Name</label>
+    </div>
+    <div class="input-field col inline add_number">
+        <input type="text" id="food_count_form_wolfram" placeholder="[x 100g]">
+        <label for="food_count_form_wolfram">Amount</label>
+    </div>
+    <div class="input-field col inline add_number">
+        <input list="food_unit_list_wolfram" id="food_unit_wolfram" value="x 100g" readonly>
+    </div>
+    <div class="input-field col inline">
+        <input class="waves-effect waves-light btn" type="submit" onclick="addFoodWithWolfram('{{ user_lang }}')"
+                                value="Add with Wolfram">
+    </div>
+    <div class="input-field col inline">
+        <input class="waves-effect waves-light btn" type="submit" onclick='(function(){
             document.getElementById("buttonsBelowTable").style.visibility = "visible";
             document.getElementById("addNewWolfram").style.visibility = "hidden";
         })();'
                             value="Go Back">
-    </td>
-</tr>
+    </div>
+</div>

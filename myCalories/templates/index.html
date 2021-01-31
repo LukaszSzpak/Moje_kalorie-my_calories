@@ -116,19 +116,18 @@
             </tbody>
         </table>
 
-        <div class="table_size" id="addNewManual" style="visibility: hidden; margin-top: 5px">
-            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodManualy.html' %}
-        </div>
-
-        <table>
-            <tbody id="addNewWolfram" style="visibility: hidden">
-                {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodWithWolfram.html' %}
-            </tbody>
-        </table>
-
         <div class="table_size" id="buttonsBelowTable" style="visibility: visible">
             {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_buttonsBelowFoodTable.html' %}
         </div>
+
+        <div class="table_size" id="addNewManual" style="visibility: hidden;">
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodManualy.html' %}
+        </div>
+
+        <div class="table_size" id="addNewWolfram" style="visibility: hidden">
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodWithWolfram.html' %}
+        </div>
+
     </div>
 </div>
 
