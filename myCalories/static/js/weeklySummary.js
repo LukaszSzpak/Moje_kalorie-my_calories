@@ -63,12 +63,9 @@ function popularFoods(foodList, lang) {
         let parsedFood = JSON.parse(food);
         let unit = parsedFood['unit']
 
-        if (unit === "g") {
-            unit = "x 100g"
-        } else {
+        if (unit === "pcs") {
             if (lang === "pl") unit = "szt";
         }
-
 
         tbody += '<tr><td>';
         if (lang === "pl") {
@@ -77,7 +74,14 @@ function popularFoods(foodList, lang) {
             tbody += parsedFood['name'];
         }
 
-        tbody += '</td><td>' + parsedFood['count'] + unit + '</td>';
+        tbody += '</td><td>';
+        if (unit === 'g') {
+            tbody += parsedFood['count'] * 100;
+            tbody += "g";
+        } else {
+            tbody += parsedFood['count'] + unit;
+        }
+        tbody += '</td>';
     })
 
     tbody += '</tr>'
