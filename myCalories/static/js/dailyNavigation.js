@@ -18,28 +18,30 @@ function changeDate(newDate, lang) {
                     }
 
                 } else {
-                    unit_var = "100g"
+                    unit_var = "100g";
                 }
 
                 table += '<tr>'
-
                 if (lang === "pl") {
                     table += '<td>' + food["name_pl"] + '</td>';
                 } else if (lang === "en") {
                     table += '<td>' + food["name"] + '</td>';
                 }
-
                 table += '<td><p class="before_unit">' + food["calories"] + 'kcal</p><p class="unit_small"> /' + unit_var + '</p></td>' +
                 '<td><p class="before_unit">' + food["fat"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
                 '<td><p class="before_unit">' + food["carbohydrates"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
                 '<td><p class="before_unit">' + food["protein"] + 'g</p><p class="unit_small"> /' + unit_var + '</p></td>' +
-                '<td><p class="before_unit">' + food["count"];
-                if(food["unit"] === 'g') table += "x ";
-                table += unit_var;
-                table += '</td>' + '</tr>';
+                '<td><p class="before_unit">';
 
-
+                if (food["unit"] === 'g') {
+                    table += food["count"] * 100;
+                    table += 'g';
+                } else {
+                    table += food["count"] + unit_var;
+                }
+                table += '</p></td>' + '</tr>';
             })
+
             calcAndAddFoodTableSum(food_list, lang);
             document.getElementById('foods').innerHTML = table;
 
