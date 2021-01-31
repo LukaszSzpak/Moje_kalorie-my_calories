@@ -2,18 +2,20 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
 {% endblock %}
-<div class="header_style">
-        <ul class="left_menu">
+<nav class="header_style">
+    <div class="nav-wrapper">
+        <ul class="left hide-on-med-and-down">
             <li>
-                <a class="nav_link" href="index">Dzienne żywienie</a>
+                <a class="menu_element" href="index">Dzienne żywienie</a>
             </li>
-            <li>
-                <a class="nav_link" href="weekly">Tygodniowe podsumowanie</a>
-            </li>
-        </ul>
-        <ul class="right_menu">
-            <li>
-                <a class="user_account_nav_link" href="userSettings">Ustawienia użytkownika</a>
+            <li class="menu_element">
+                <a class="menu_element" href="weekly">Tygodniowe podsumowanie</a>
             </li>
         </ul>
-</div>
+        <ul class="right hide-on-med-and-down">
+            <li class="menu_element">
+                <a class="menu_element" href="userSettings">Ustawienia użytkownika</a>
+            </li>
+        </ul>
+    </div>
+</nav>
