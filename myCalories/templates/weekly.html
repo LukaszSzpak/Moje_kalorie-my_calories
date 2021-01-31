@@ -35,11 +35,7 @@
 
 <!-- header-->
 <header>
-    {% if user_lang == 'pl' %}
-        {% include 'pl/pl_header.html' %}
-    {% else %}
-        {% include 'en/en_header.html' %}
-    {% endif %}
+    {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_header.html' %}
 </header>
 
 <!-- Weekly navigation -->
@@ -69,11 +65,7 @@
     <table class="weekly_table striped">
         <thead>
         <tr>
-            {% if user_lang == 'pl' %}
-                {% include 'pl/pl_weeklyNutritionTableHeader.html' %}
-            {% else %}
-                {% include 'en/en_weeklyNutritionTableHeader.html' %}
-            {% endif %}
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_weeklyNutritionTableHeader.html' %}
         </tr>
         </thead>
         <tbody>
@@ -95,11 +87,7 @@
             {% endif %}
         </caption>
         <thead>
-            {% if user_lang == 'pl' %}
-                {% include 'pl/pl_weeklyPopularFoodTableHeader.html' %}
-            {% else %}
-                {% include 'en/en_weeklyPopularFoodTableHeader.html' %}
-            {% endif %}
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_weeklyPopularFoodTableHeader.html' %}
         </thead>
 
         <tbody id="popular_foods">
@@ -111,11 +99,7 @@
 
 
 <!-- footer-->
-{% if user_lang == 'pl' %}
-    {% include 'pl/pl_footer.html' %}
-{% else %}
-    {% include 'en/en_footer.html' %}
-{% endif %}
+{% include ''|add:user_lang|add:'/'|add:user_lang|add:'_footer.html' %}
 
 </body>
 </html>

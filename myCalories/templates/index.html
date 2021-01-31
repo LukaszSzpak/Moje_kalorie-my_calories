@@ -54,19 +54,12 @@
 
 <!-- header-->
 <header>
-    {% if user_lang == 'pl' %}
-        {% include 'pl/pl_header.html' %}
-    {% else %}
-        {% include 'en/en_header.html' %}
-    {% endif %}
+    {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_header.html' %}
 </header>
 
 <!-- Daily navigation -->
-{% if user_lang == 'pl' %}
-    {% include 'pl/pl_dailyNav.html' %}
-{% else %}
-    {% include 'en/en_dailyNav.html' %}
-{% endif %}
+{% include ''|add:user_lang|add:'/'|add:user_lang|add:'_dailyNav.html' %}
+
 
 <!-- loader -->
 <div id="loadingDiv" style="visibility: hidden">
@@ -113,11 +106,7 @@
     <div id="foodTable">
         <table class="table_size">
             <thead>
-            {% if user_lang == 'pl' %}
-                {% include 'pl/pl_tableHeader.html' %}
-            {% else %}
-                {% include 'en/en_tableHeader.html' %}
-            {% endif %}
+                {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_tableHeader.html' %}
             </thead>
 
             <tbody id="foods">
@@ -128,38 +117,23 @@
         </table>
 
         <div class="table_size" id="addNewManual" style="visibility: hidden; margin-top: 5px">
-            {% if user_lang == 'pl' %}
-                {% include 'pl/pl_addFoodManualy.html' %}
-            {% else %}
-                {% include 'en/en_addFoodManualy.html' %}
-            {% endif %}
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodManualy.html' %}
         </div>
+
         <table>
             <tbody id="addNewWolfram" style="visibility: hidden">
-                {% if user_lang == 'pl' %}
-                    {% include 'pl/pl_addFoodWithWolfram.html' %}
-                {% else %}
-                    {% include 'en/en_addFoodWithWolfram.html' %}
-                {% endif %}
+                {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_addFoodWithWolfram.html' %}
             </tbody>
         </table>
 
         <div class="table_size" id="buttonsBelowTable" style="visibility: visible">
-                {% if user_lang == 'pl' %}
-                    {% include 'pl/pl_buttonsBelowFoodTable.html' %}
-                {% else %}
-                    {% include 'en/en_buttonsBelowFoodTable.html' %}
-                {% endif %}
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_buttonsBelowFoodTable.html' %}
         </div>
     </div>
 </div>
 
 <!-- footer-->
-{% if user_lang == 'pl' %}
-    {% include 'pl/pl_footer.html' %}
-{% else %}
-    {% include 'en/en_footer.html' %}
-{% endif %}
+{% include ''|add:user_lang|add:'/'|add:user_lang|add:'_footer.html' %}
 
 </body>
 </html>

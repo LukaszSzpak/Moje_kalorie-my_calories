@@ -41,27 +41,15 @@
 
 <!-- header-->
 <header>
-    {% if user_lang == 'pl' %}
-        {% include 'pl/pl_header.html' %}
-    {% else %}
-        {% include 'en/en_header.html' %}
-    {% endif %}
+    {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_header.html' %}
 </header>
 
 <div class="main">
-    {% if user_lang == 'pl' %}
-        {% include 'pl/pl_userSettingsForm.html' %}
-    {% else %}
-        {% include 'en/en_userSettingsForm.html' %}
-    {% endif %}
+    {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_userSettingsForm.html' %}
 </div>
 
 <!-- footer-->
-{% if user_lang == 'pl' %}
-    {% include 'pl/pl_footer.html' %}
-{% else %}
-    {% include 'en/en_footer.html' %}
-{% endif %}
+{% include ''|add:user_lang|add:'/'|add:user_lang|add:'_footer.html' %}
 
 </body>
 </html>
