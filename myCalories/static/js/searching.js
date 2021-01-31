@@ -137,7 +137,10 @@ function addFoodToDayFunction() {
     let foodCount = document.getElementById("countOfAddFoodToDay").value;
     let date = document.getElementById('actualDate').innerHTML;
 
-    console.log(foodCount);
+    if (isNaN(foodCount)) {
+        alertNaN();
+        return;
+    }
 
     if (foodCount <= 0) {
         alertCountLessOrEqualZero();

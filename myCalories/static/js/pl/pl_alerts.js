@@ -1,8 +1,8 @@
-function alertNotFoundWolfram(lang) {
+function alertNotFoundWolfram() {
     alert("Nie znaleziono na Wolframie!");
 }
 
-function alertAlreadyInDatabase(lang) {
+function alertAlreadyInDatabase() {
     alert("Produkt był już wprowadzony! Skorzystaj z wyszukiwarki!");
 }
 
@@ -16,4 +16,8 @@ function alertLessThenZero() {
 
 function alertUserSettings() {
     alert("Wprowadzono błędne dane użytkownika!")
+}
+
+function alertNaN() {
+    alert("Proszę wpisać liczbę!");
 }

@@ -10,6 +10,11 @@ function addFoodManual(lang) {
 
     let date = document.getElementById('actualDate').innerHTML;
 
+    if(isNaN(foodCalories) || isNaN(foodFat) || isNaN(foodCarbohydrates) || isNaN(foodProtein) || isNaN(foodCount)) {
+        alertNaN();
+        return;
+    }
+
     if (foodCount <= 0) {
         alertCountLessOrEqualZero();
         return;

@@ -4,6 +4,11 @@ function addFoodWithWolfram(lang) {
     let foodCount = document.getElementById("food_count_form_wolfram").value;
     let date = document.getElementById('actualDate').innerHTML;
 
+    if (isNaN(foodCount)) {
+        alertNaN();
+        return;
+    }
+
     if (foodCount <= 0) {
         alertCountLessOrEqualZero();
         return;
