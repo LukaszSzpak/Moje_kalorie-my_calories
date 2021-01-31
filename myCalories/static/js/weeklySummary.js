@@ -42,10 +42,10 @@ function weeklyNutrition(daysSummaries, lang) {
     daysSummaries.forEach(function (food){
         let parsedFood = JSON.parse(food);
 
-        caloriesRow += '<td>' + parsedFood['calories'] + 'kcal</td>';
-        fatsRow += '<td>' + parsedFood['fat'] + 'g</td>';
-        proteinsRow += '<td>' + parsedFood['protein'] + 'g</td>';
-        carbohydratesRow += '<td>' + parsedFood['carbohydrates'] + 'g</td>';
+        caloriesRow += '<td>' + parsedFood['calories'].toFixed(2) + 'kcal</td>';
+        fatsRow += '<td>' + parsedFood['fat'].toFixed(2) + 'g</td>';
+        proteinsRow += '<td>' + parsedFood['protein'].toFixed(2) + 'g</td>';
+        carbohydratesRow += '<td>' + parsedFood['carbohydrates'].toFixed(2) + 'g</td>';
     })
 
 
@@ -76,7 +76,7 @@ function popularFoods(foodList, lang) {
 
         tbody += '</td><td>';
         if (unit === 'g') {
-            tbody += parsedFood['count'] * 100;
+            tbody += (parsedFood['count'] * 100).toFixed(2);
             tbody += "g";
         } else {
             tbody += parsedFood['count'] + unit;
