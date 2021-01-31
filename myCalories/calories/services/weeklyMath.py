@@ -37,7 +37,7 @@ def get_most_popular_foods_json(date_list):
             else:
                 result_list[food.name] = count
 
-    result_list = sorted(result_list.items(), key=operator.itemgetter(1))
+    result_list = sorted(result_list.items(), key=operator.itemgetter(1), reverse=True)
     result_items = list(islice(result_list, 0, __POPULAR_COUNT))
 
     result_foods = []
