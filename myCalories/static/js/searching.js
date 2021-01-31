@@ -124,8 +124,9 @@ function afterClick(foodName) {
             document.getElementById("unitOfAddFoodToDay").innerText = food_unit;
 
             document.getElementById("countOfAddFoodToDay").style.visibility = 'visible';
+            document.getElementById("countOfAddFoodToDayLabel").style.visibility = 'visible';
             document.getElementById("unitOfAddFoodToDay").style.visibility = 'visible';
-            document.getElementById("addFoodToDay").style.visibility = 'visible';
+            document.getElementById("searcherButtons").style.visibility = 'visible';
 
         }
     })
@@ -153,14 +154,18 @@ function addFoodToDayFunction() {
                 'date': date},
         success: function (response) {
             changeDate(date, userLang);
-
-            document.getElementById("countOfAddFoodToDay").style.visibility = 'hidden';
-            document.getElementById("countOfAddFoodToDay").value= '';
-            document.getElementById("unitOfAddFoodToDay").style.visibility = 'hidden';
-            document.getElementById("addFoodToDay").style.visibility = 'hidden';
-            document.getElementById("foodNameInput").value = '';
+            hideSearcherFields();
         }
     })
+}
+
+function hideSearcherFields() {
+    document.getElementById("countOfAddFoodToDay").style.visibility = 'hidden';
+    document.getElementById("countOfAddFoodToDay").value= '';
+    document.getElementById("countOfAddFoodToDayLabel").style.visibility = 'hidden';
+    document.getElementById("unitOfAddFoodToDay").style.visibility = 'hidden';
+    document.getElementById("searcherButtons").style.visibility = 'hidden';
+    document.getElementById("foodNameInput").value = '';
 }
 
 foodSearcher(document.getElementById("foodNameInput"), foods)

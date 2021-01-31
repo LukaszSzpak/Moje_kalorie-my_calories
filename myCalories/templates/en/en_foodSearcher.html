@@ -1,0 +1,19 @@
+<div class="row table_size">
+    <div class="input-field col inline">
+        <input id="foodNameInput" type="text" name="newFood" class="autocomplete">
+        <label for="foodNameInput">Food searcher</label>
+    </div>
+    <div class="input-field col inline add_number">
+        <input id="countOfAddFoodToDay" type="text" style="visibility: hidden">
+        <label id="countOfAddFoodToDayLabel" style="visibility: hidden" for="countOfAddFoodToDay">Amount</label>
+    </div>
+    <div class="input-field col inline add_number">
+        <p id="unitOfAddFoodToDay" style="visibility: hidden"></p>
+    </div>
+    <div id="searcherButtons" class="input-field col inline" style="visibility: hidden">
+        <input id="addFoodToDay" type="submit" class="waves-effect waves-light btn"
+                           onclick="addFoodToDayFunction()" value="Add to Your day!">
+        <input id="returnFoodToDay" type="submit" class="waves-effect waves-light btn"
+                           onclick="hideSearcherFields()" value="Go Back">
+    </div>
+</div>

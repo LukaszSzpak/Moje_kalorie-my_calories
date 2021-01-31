@@ -70,35 +70,8 @@
 
 <!-- food searcher -->
     <div>
-        <div class="foodSearcher table_size">
-
-
-            <table> <tr>
-                <td>
-                    <input id="foodNameInput" type="text" name="newFood"
-                        {% if user_lang == 'pl' %}
-                            placeholder="Wyszukaj jedzenie!"
-                        {% else %}
-                            placeholder="Let's find your food!"
-                        {% endif %}>
-                </td>
-                <td>
-                    <input id="countOfAddFoodToDay" type="text" style="visibility: hidden">
-                </td>
-                <td>
-                    <p id="unitOfAddFoodToDay" style="visibility: hidden"></p>
-                </td>
-                <td>
-                    <input id="addFoodToDay" type="submit"
-                           onclick="addFoodToDayFunction()"
-                           style="visibility: hidden"
-                           {% if user_lang == 'pl' %}
-                                value="Dodaj do swojego dnia!"
-                            {% else %}
-                                value="Add to Your day!"
-                            {% endif %}>
-                </td>
-            </tr> </table>
+        <div class="foodSearcher table_size" style="margin-top: 10px">
+            {% include ''|add:user_lang|add:'/'|add:user_lang|add:'_foodSearcher.html' %}
         </div>
     </div>
 
