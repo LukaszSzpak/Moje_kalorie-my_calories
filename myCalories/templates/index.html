@@ -142,15 +142,15 @@
                     {% include 'en/en_addFoodWithWolfram.html' %}
                 {% endif %}
             </tbody>
-
-            <tbody id="buttonsBelowTable" style="visibility: visible">
-                    {% if user_lang == 'pl' %}
-                        {% include 'pl/pl_buttonsBelowFoodTable.html' %}
-                    {% else %}
-                        {% include 'en/en_buttonsBelowFoodTable.html' %}
-                    {% endif %}
-            </tbody>
         </table>
+
+        <div class="table_size" id="buttonsBelowTable" style="visibility: visible">
+                {% if user_lang == 'pl' %}
+                    {% include 'pl/pl_buttonsBelowFoodTable.html' %}
+                {% else %}
+                    {% include 'en/en_buttonsBelowFoodTable.html' %}
+                {% endif %}
+        </div>
     </div>
 </div>
 
