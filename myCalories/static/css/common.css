@@ -11,3 +11,7 @@ body {
 .main {
     min-height: 70vh;
 }
+
+.waves-effect {
+    background-color: #3399CC !important;
+}
