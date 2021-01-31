@@ -46,9 +46,7 @@ function changeDate(newDate, lang) {
             document.getElementById('prev_date').innerHTML = response['prev_date'];
             document.getElementById('prev_date').onclick = function () {changeDate(response['prev_date'], lang)};
 
-            document.getElementById('act_date').innerHTML = response['act_date'];
             document.getElementById('actualDate').innerHTML = response['act_date'];
-            document.getElementById('act_date').onclick = function () {changeDate(response['act_date'], lang)};
 
             document.getElementById('next_date').innerHTML = response['next_date'];
             document.getElementById('next_date').onclick = function () {changeDate(response['next_date'], lang)};

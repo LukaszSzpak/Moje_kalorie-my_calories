@@ -1,33 +1,41 @@
-<tr>
-    <td>
-        <input type="text" id="food_name_form" placeholder="Food name">
-    </td>
-    <td>
-        <input type="text" id="food_calories_form" placeholder="Food calories [kcal]">
-    </td>
-    <td>
-        <input type="text" id="food_fat_form" placeholder="Food fats [g]">
-    </td>
-    <td>
-        <input type="text" id="food_carbohydrates_form" placeholder="Food carbons [g]">
-    </td>
-    <td>
-        <input type="text" id="food_protein_form" placeholder="Food proteins [g]">
-    </td>
-    <td>
-        <input type="text" id="food_count_form" placeholder="Amount of food [g/pcs]">
-        <select id="food_unit">
+<p>Manually add new food:</p>
+<div class="row table_size">
+    <div class="input-field col inline" style="width: 150px">
+        <input type="text" size="5" id="food_name_form">
+        <label for="food_name_form">Name</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_calories_form" placeholder="[kcal]">
+        <label for="food_calories_form">Calories</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_fat_form" placeholder="[g]">
+        <label for="food_fat_form">Fats</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_carbohydrates_form" placeholder="[g]">
+        <label for="food_carbohydrates_form">Carbons</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_protein_form" placeholder="[g]">
+        <label for="food_protein_form">Proteins</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_count_form" placeholder="[g/pcs]">
+        <label for="food_count_form">Amount:</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <select id="food_unit" class="inline">
             <option value="pcs">pcs</option>
             <option value="g">x 100g</option>
         </select>
-    </td>
-    <td>
-        <input type="submit" onclick="addFoodManual('{{ user_lang }}')" value="Add">
-        <input type="submit" onclick='(function(){
+    </div>
+    <div class="input-field col inline">
+        <input class="waves-effect waves-light btn" type="submit" onclick="addFoodManual('{{ user_lang }}')" value="Add">
+        <input class="waves-effect waves-light btn" type="submit" onclick='(function(){
             document.getElementById("buttonsBelowTable").style.visibility = "visible";
             document.getElementById("addNewManual").style.visibility = "hidden";
         })();'
-                                value="Go Back">
-    </td>
-
-</tr>
+                        value="Go Back">
+    </div>
+</div>

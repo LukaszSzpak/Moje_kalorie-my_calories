@@ -1,33 +1,41 @@
-<tr>
-    <td>
-        <input type="text" id="food_name_form" placeholder="Nazwa jedzenia">
-    </td>
-    <td>
-        <input type="text" id="food_calories_form" placeholder="Ilość kalori [kcal]">
-    </td>
-    <td>
-        <input type="text" id="food_fat_form" placeholder="Ilość tłuszczy [g]">
-    </td>
-    <td>
-        <input type="text" id="food_carbohydrates_form" placeholder="Ilość węglowodanów [g]">
-    </td>
-    <td>
-        <input type="text" id="food_protein_form" placeholder="Ilość białek [g]">
-    </td>
-    <td>
-        <input type="text" id="food_count_form" placeholder="Ilość jedzenia [g/szt]">
-        <select id="food_unit">
+<p>Dodaj ręcznie nowe jedzenie:</p>
+<div class="row table_size">
+    <div class="input-field col inline" style="width: 150px">
+        <input type="text" size="5" id="food_name_form">
+        <label for="food_name_form">Nazwa</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_calories_form" placeholder="[kcal]">
+        <label for="food_calories_form">Kalorie</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_fat_form" placeholder="[g]">
+        <label for="food_fat_form">Tłuszcze</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_carbohydrates_form" placeholder="[g]">
+        <label for="food_carbohydrates_form">Węgle</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_protein_form" placeholder="[g]">
+        <label for="food_protein_form">Białka</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <input type="text" id="food_count_form" placeholder="[g/szt]">
+        <label for="food_count_form">Ilość:</label>
+    </div>
+    <div class="input-field col inline manualy_add_number">
+        <select id="food_unit" class="inline">
             <option value="pcs">szt</option>
             <option value="g">x 100g</option>
         </select>
-    </td>
-    <td>
-        <input type="submit" onclick="addFoodManual('{{ user_lang }}')" value="Dodaj">
-        <input type="submit" onclick='(function(){
+    </div>
+    <div class="input-field col inline">
+        <input class="waves-effect waves-light btn" type="submit" onclick="addFoodManual('{{ user_lang }}')" value="Dodaj">
+        <input class="waves-effect waves-light btn" type="submit" onclick='(function(){
             document.getElementById("buttonsBelowTable").style.visibility = "visible";
             document.getElementById("addNewManual").style.visibility = "hidden";
         })();'
-                                value="Cofnij">
-    </td>
-
-</tr>
+                        value="Cofnij">
+    </div>
+</div>

@@ -1,20 +1,15 @@
-<br/>
-
-<nav style="display: flex;
-  justify-content: center;">
+<nav class="nav-wrapper nav_styles">
     <div style="float: left; margin-right: 50px">
-        <p class="daily_nav_link" id="prev_date" onclick="changeDate('{{ prev_date }}',
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="prev_date" onclick="changeDate('{{ prev_date }}',
                 '{{ user_lang }}')">{{ prev_date }}</p>
     </div>
 
     <div style="float: left">
-        <p class="daily_nav_link" id="act_date"> {{ act_date }}</p>
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="act_date">ten dzień</p>
     </div>
 
     <div style="float: left; margin-left: 50px">
-        <p class="daily_nav_link" id="next_date" onclick="changeDate('{{ next_date }}',
+        <p class="daily_nav_link waves-effect waves-light btn-large" id="next_date" onclick="changeDate('{{ next_date }}',
                 '{{ user_lang }}')">{{ next_date }}</p>
     </div>
 </nav>
-
-<hr/>

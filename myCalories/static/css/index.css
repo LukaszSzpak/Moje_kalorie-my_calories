@@ -1,0 +1,15 @@
+.table_size {
+    margin: auto;
+    max-width: 1100px;
+}
+
+.nav_styles {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    min-height: 80px;
+}
+
+.manualy_add_number {
+    width: 100px;
+}
